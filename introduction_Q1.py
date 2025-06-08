@@ -68,6 +68,13 @@ def display_project_scope_justification():
         ]
     }
 
+    st.markdown(
+        "- Trade data was obtained from the [International Trade Map](https://www.trademap.org/Index.aspx). "
+        "Initially, the dataset included trade flows with **all countries**.\n"
+        "- We performed data cleaning to **filter out irrelevant countries** and **focused only on the 7 target countries**.\n"
+        "- Trade balances were then analyzed across **7 HS code product categories**, allowing us to explore strategic trade trends and impacts of global tariff policies."
+    )
+
     st.subheader("Project Scope and Justification")
 
     st.markdown("#### Product Categories and Strategic Importance")

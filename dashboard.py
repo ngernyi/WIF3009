@@ -2,7 +2,7 @@ import streamlit as st
 from EDA import show_trade_balance_charts
 from product_analysis import plot_trade_balances
 from introduction_Q1 import display_project_scope_justification
-
+from sentiment import display_country_timeline_sentiment_dashboard
 st.title("Impact Analysis of US-China Tariffs")
 
 if "section" not in st.session_state:
@@ -41,7 +41,7 @@ elif section == "Exploratory Data Analysis":
     show_trade_balance_charts()
     plot_trade_balances()
 elif section == "Sentiment Analysis":
-    st.write("Content about sentiment analysis...")
+    display_country_timeline_sentiment_dashboard()
 elif section == "Correlation Analysis":
     display_correlation_analysis()
 elif section == "Predictive Modeling":

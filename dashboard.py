@@ -1,6 +1,7 @@
 import streamlit as st
 from EDA import show_trade_balance_charts
 from product_analysis import plot_trade_balances
+from introduction_Q1 import display_project_scope_justification
 
 st.title("Impact Analysis of US-China Tariffs")
 
@@ -35,7 +36,7 @@ def display_correlation_analysis():
     st.write("Content about correlation analysis...")
 
 if section == "Data Collection & Cleaning":
-    st.write("Content about data collection and cleaning...")
+    display_project_scope_justification()
 elif section == "Exploratory Data Analysis":
     show_trade_balance_charts()
     plot_trade_balances()

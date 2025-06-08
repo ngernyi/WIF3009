@@ -1,4 +1,3 @@
-# product_analysis.py
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -38,6 +37,64 @@ CUSTOM_TITLES = {
     "combined_94_US": "Trade Balance of *HS Code 94 (Furniture and Lighting)* - US Towards Other Countries",
 }
 
+INSIGHTS = {
+    "combined_12_CN": (
+        "China shows a **consistent negative trade balance** in HS 12 (agriculture), "
+        "indicating heavy reliance on imports for seeds, fruits, and grains."
+    ),
+    "combined_12_US": (
+        "The US maintains a **strong positive trade balance** in HS 12, "
+        "confirming its role as a major exporter of agricultural products."
+    ),
+    "combined_39_CN": (
+        "China exhibits a **steady positive trade balance** in plastics (HS 39), "
+        "reflecting strong export capacity and manufacturing dominance."
+    ),
+    "combined_39_US": (
+        "The US shows **fluctuating and mostly negative balances** in plastics (HS 39), "
+        "highlighting import reliance in this sector."
+    ),
+    "combined_84_CN": (
+        "China holds a **strong and increasing trade surplus** in machinery (HS 84), "
+        "reflecting leadership in manufacturing and exports."
+    ),
+    "combined_84_US": (
+        "The US has **mostly negative or balanced trade balances** in machinery (HS 84), "
+        "indicating import dependence."
+    ),
+    "combined_85_CN": (
+        "China has a **strong positive trade balance** in electrical machinery (HS 85), "
+        "showcasing export strength."
+    ),
+    "combined_85_US": (
+        "The US shows **mixed and often negative trade balances** in electrical machinery (HS 85), "
+        "demonstrating import reliance."
+    ),
+    "combined_87_CN": (
+        "China shows a **growing surplus** in vehicles (HS 87), indicating expanding exports."
+    ),
+    "combined_87_US": (
+        "The US experiences a **negative trade balance** in vehicles (HS 87), "
+        "showing dependence on vehicle imports."
+    ),
+    "combined_90_CN": (
+        "China has **moderate positive trade balances** in precision instruments (HS 90), "
+        "suggesting emerging competitiveness."
+    ),
+    "combined_90_US": (
+        "The US shows **variable trade balances** in precision instruments (HS 90), "
+        "reflecting a competitive and fluctuating market."
+    ),
+    "combined_94_CN": (
+        "China maintains a **solid positive trade balance** in furniture and lighting (HS 94), "
+        "dominating exports."
+    ),
+    "combined_94_US": (
+        "The US generally holds a **negative trade balance** in furniture and lighting (HS 94), "
+        "relying on imports."
+    ),
+}
+
 def plot_trade_balances():
     for url in CSV_SOURCE_FILES:
         try:
@@ -69,12 +126,15 @@ def plot_trade_balances():
             st.pyplot(fig)
             plt.close(fig)
 
+            # Display insight below each plot
+            insight_text = INSIGHTS.get(file_name, "No specific insights available for this dataset.")
+            st.markdown(f"**Insight:** {insight_text}")
+
         except Exception as e:
             st.error(f"Error processing {url}: {e}")
 
-    # Summary insights section
+    # Optional: Overall summary insights at the end
     st.markdown("## 📊 Summary Insights & Conclusion")
-
     st.markdown("""
     ### 🟢 China
     - Strong **positive trade balances** in:
